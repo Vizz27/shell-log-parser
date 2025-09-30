@@ -1,27 +1,29 @@
-# Shell Log Parser & System Monitor (Example)
-Tools: bash, Python (psutil), pytest, Allure (allure-pytest), GitHub Actions
+# shell-log-parser
 
-What this demonstrates:
-- A simple bash log parser (scripts/parse_logs.sh)
-- A Python parser (src/parse_logs.py) which is unit-tested with pytest
-- A lightweight system monitor (src/monitor.py) using psutil
-- CI workflow that runs tests and stores allure results as artifact
+![CI](https://github.com/<username>/shell-log-parser/actions/workflows/ci.yml/badge.svg)
 
-Quickstart:
-1. Create a virtualenv and install dependencies:
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
+**Short description:** Small toolset to parse service logs (Bash + Python), lightweight system monitor (psutil), pytest unit tests and Allure test reporting. Demonstrates test automation and CI for production-like observability pipelines.
 
-2. Run tests and produce Allure results:
-   pytest --alluredir=allure-results
+## Tech stack
+- Bash, Python 3.10+, pytest, allure-pytest
+- GitHub Actions (CI), Allure test reporting
 
-3. Serve or view the Allure report locally (if you have allure installed):
-   allure serve allure-results
+## Quickstart
+1. Clone:
+   git clone https://github.com/<username>/shell-log-parser.git
+2. Run demo:
+   cd shell-log-parser
+   ./demo.sh
 
-Files:
-- scripts/parse_logs.sh : Bash parser (quick summary)
-- src/parse_logs.py     : Python parser with functions you can import & test
-- src/monitor.py        : Simple system monitor using psutil
-- tests/test_parse.py   : pytest tests for parse_logs.py
-- .github/workflows/ci.yml : Example GitHub Actions to run tests and upload results
+## What to look for
+- `scripts/parse_logs.sh` — bash parser producing summary CSV.
+- `src/parse_logs.py` — Python parser + reusable functions.
+- `src/monitor.py` — psutil snapshotter.
+- `tests/` — pytest unit tests.
+- `.github/workflows/ci.yml` — CI that runs tests & uploads `allure-results`.
+
+## Results
+- Example `summary.csv` and `snapshot.json` are shown under `examples/` (optional).
+
+## License
+MIT
